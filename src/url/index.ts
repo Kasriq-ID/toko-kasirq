@@ -1,4 +1,5 @@
-export const API_BASE_URL = "http://localhost:3001/stores-api";
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001/stores-api";
 
 export const ENDPOINTS = {
   PRODUCTS_SELL: "/products/sell",
