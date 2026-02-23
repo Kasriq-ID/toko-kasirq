@@ -130,7 +130,7 @@ export default function CartSidebar() {
                       src={
                         item.product.image.startsWith("http")
                           ? item.product.image
-                          : `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.kasirq.id"}/images/products/${item.product.image}`
+                          : `${process.env.NEXT_PUBLIC_API_BASE || "https://api.kasirq.id"}/images/products/${item.product.image}`
                       }
                       alt={item.product.name}
                       fill
