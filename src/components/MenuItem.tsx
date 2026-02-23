@@ -67,7 +67,7 @@ export default function MenuItem({ product }: MenuItemProps) {
   const imageUrl = product.image
     ? product.image.startsWith("http")
       ? product.image
-      : `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.kasirq.id"}/images/products/${product.image}`
+      : `${process.env.NEXT_PUBLIC_API_BASE || "https://api.kasirq.id"}/images/products/${product.image}`
     : null;
 
   return (

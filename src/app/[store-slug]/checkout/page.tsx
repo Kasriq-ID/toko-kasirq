@@ -4,13 +4,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
-import {
-  HiChevronLeft,
-  HiOutlineCreditCard,
-  HiOutlineCash,
-} from "react-icons/hi";
+import { HiChevronLeft, HiOutlineCash } from "react-icons/hi";
 import useCart from "@/hooks/useCart";
 import { useShallow } from "zustand/react/shallow";
 import { formatCurrency } from "@/const";
@@ -254,7 +249,7 @@ export default function CheckoutPage() {
                       src={
                         item.product.image.startsWith("http")
                           ? item.product.image
-                          : `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.kasirq.id"}/images/products/${item.product.image}`
+                          : `${process.env.NEXT_PUBLIC_API_BASE || "https://api.kasirq.id"}/images/products/${item.product.image}`
                       }
                       alt={item.product.name}
                       fill
