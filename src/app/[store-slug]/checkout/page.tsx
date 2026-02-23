@@ -254,7 +254,7 @@ export default function CheckoutPage() {
                       src={
                         item.product.image.startsWith("http")
                           ? item.product.image
-                          : `http://localhost:3001/uploads/${item.product.image}`
+                          : `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.kasirq.id"}/images/products/${item.product.image}`
                       }
                       alt={item.product.name}
                       fill
@@ -350,40 +350,6 @@ export default function CheckoutPage() {
                 type="radio"
                 {...register("paymentMethod")}
                 value="cashier"
-                className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-            </label>
-
-            <label
-              className={cn(
-                "flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all",
-                selectedPayment === "wallet"
-                  ? "border-blue-500 bg-blue-50/30"
-                  : "border-gray-100",
-              )}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={cn(
-                    "w-10 h-10 flex items-center justify-center rounded-xl",
-                    selectedPayment === "wallet"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-50 text-gray-400",
-                  )}
-                >
-                  <HiOutlineCreditCard className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold text-gray-700">
-                    Digital Wallet
-                  </span>
-                  <span className="text-[10px] text-gray-400">(OVO/Dana)</span>
-                </div>
-              </div>
-              <input
-                type="radio"
-                {...register("paymentMethod")}
-                value="wallet"
                 className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300"
               />
             </label>
