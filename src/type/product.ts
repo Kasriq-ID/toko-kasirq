@@ -96,11 +96,14 @@ export interface CartItem {
 }
 
 export interface CheckoutPayload {
-  slug: string;
-  accountId: string;
-  memberId: string | null;
+  slug?: string;
+  accountId?: string;
+  memberId?: string | null;
   subTotal: number | string;
   discount: number | string;
+  tax?: number | string;
+  total?: number | string;
+  additionalCost?: number | string;
   pay: number | string;
   description?: string;
   phone: string;
@@ -120,28 +123,30 @@ export interface CheckoutPayload {
 export interface OrderDetailItem {
   id: string;
   saleId: string;
-  productId: string;
+  productId: string | null;
   quantity: number | string;
   price: number | string;
-  products: Product;
+  itemName?: string | null;
+  products: Pick<Product, "id" | "name"> | null;
 }
 
 export interface OrderDetail {
   id: string;
-  slug: string;
-  accountId: string;
+  storeId: string | null;
+  date?: string | null;
+  accountId?: string | null;
   memberId: string | null;
-  subTotal: number | string;
-  discount: number | string;
-  pay: number | string;
-  total: number | string;
+  subTotal: number | string | null;
+  discount: number | string | null;
+  pay?: number | string | null;
+  total: number | string | null;
   description: string | null;
   phone: string;
   address: string;
   name: string;
   invoice: string;
-  paymentMethod: string;
-  createdAt: string;
+  paymentMethod?: string;
+  createdAt: string | null;
   salePendingDetails: OrderDetailItem[];
 }
 

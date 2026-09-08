@@ -106,10 +106,11 @@ export default function CheckoutPage() {
 
     const payload = {
       slug: storeSlug,
-      accountId: "ID_AKUN_KAS",
-      memberId: null,
       subTotal: subtotal,
       discount: 0,
+      tax,
+      total,
+      additionalCost: serviceCharge,
       pay: total,
       description: data.description,
       detailItem,

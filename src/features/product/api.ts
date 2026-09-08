@@ -50,7 +50,7 @@ export const fetchOrderById = async (
   id: string,
 ): Promise<OrderDetailsResponse> => {
   const { data } = await api.get<OrderDetailsResponse>(
-    `${ENDPOINTS.ORDER_PLACE}/${id}`,
+    `${ENDPOINTS.ORDER_DETAIL}/${id}`,
   );
   return data;
 };

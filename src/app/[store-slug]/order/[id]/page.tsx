@@ -117,13 +117,15 @@ export default function OrderDetailPage() {
                   RECEIPT
                 </h3>
                 <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">
-                  {new Date(order.createdAt).toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {order.createdAt
+                    ? new Date(order.createdAt).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })
+                    : "-"}
                 </p>
               </div>
               <div className="text-right">
@@ -142,7 +144,7 @@ export default function OrderDetailPage() {
                 >
                   <div className="flex-1">
                     <p className="text-sm font-bold text-gray-800">
-                      {detail.products.name}
+                      {detail.products?.name ?? detail.itemName ?? "Produk"}
                     </p>
                     <p className="text-[11px] text-gray-400 mt-0.5">
                       {detail.quantity} x {formatCurrency(Number(detail.price))}
@@ -249,7 +251,7 @@ export default function OrderDetailPage() {
                   const itemsList = order?.salePendingDetails
                     ?.map(
                       (d) =>
-                        `- ${d.products.name} (${d.quantity}x) @ ${formatCurrency(Number(d.price))}`,
+                        `- ${d.products?.name ?? d.itemName ?? "Produk"} (${d.quantity}x) @ ${formatCurrency(Number(d.price))}`,
                     )
                     .join("\n");
 
