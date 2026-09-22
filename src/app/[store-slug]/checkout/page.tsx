@@ -165,7 +165,7 @@ export default function CheckoutPage() {
               </label>
               <input
                 {...register("name")}
-                placeholder="John Doe"
+                placeholder="Eko"
                 className={cn(
                   "w-full px-4 py-3 bg-white border rounded-xl text-sm focus:outline-none focus:ring-2 transition-all",
                   errors.name
@@ -285,31 +285,17 @@ export default function CheckoutPage() {
           <h2 className="text-sm font-bold text-gray-800 mb-3">
             Billing Details
           </h2>
-          <div className="space-y-2 text-xs">
-            <div className="flex justify-between text-gray-500">
-              <span>Subtotal</span>
-              <span className="font-bold text-gray-800">
+          <div className="text-xs">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-bold text-gray-800">Total</span>
+              <span className="text-base font-bold text-blue-600">
                 {formatCurrency(subtotal)}
               </span>
             </div>
-            <div className="flex justify-between text-gray-500">
-              <span>Tax (10%)</span>
-              <span className="font-bold text-gray-800">
-                {formatCurrency(tax)}
-              </span>
-            </div>
-            <div className="flex justify-between text-gray-500">
-              <span>Service Charge (5%)</span>
-              <span className="font-bold text-gray-800">
-                {formatCurrency(serviceCharge)}
-              </span>
-            </div>
-            <div className="pt-2 mt-2 border-t border-dashed border-gray-100 flex justify-between items-center">
-              <span className="text-sm font-bold text-gray-800">Total</span>
-              <span className="text-base font-bold text-blue-600">
-                {formatCurrency(total)}
-              </span>
-            </div>
+            <p className="mt-3 text-[11px] leading-relaxed text-gray-400">
+              Total hanya mencakup total produk. Belum termasuk PPN, diskon, atau
+              biaya lainnya jika ada.
+            </p>
           </div>
         </section>
 
