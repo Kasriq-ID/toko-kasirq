@@ -257,7 +257,7 @@ export default function OrderDetailPage() {
 
                   const message = [
                     `Halo ${store.name},`,
-                    `Saya ingin bertanya tentang pesanan saya:`,
+                    `Saya ingin bertanya tentang pesanan saya: `,
                     `*No Pesanan:* ${order?.invoice}`,
                     `*Nama Pelanggan:* ${order?.name}`,
                     `*Daftar Pesanan:*`,
